@@ -13,7 +13,8 @@ public class Task implements java.io.Serializable {
     private String taskName;
     @Column(name = "taskdescription")
     private String taskDescription;
+    @Column(name = "taskcomplete")
+    private Boolean taskComplete;
     @ManyToOne
-    @JoinTable(name = "users", joinColumns = @JoinColumn(name = "id"))
-    private Integer userId;
+    private User user;
 }

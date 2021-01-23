@@ -1,6 +1,7 @@
 package wsb.pzx98442.javaapp.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -13,4 +14,6 @@ public class User implements java.io.Serializable{
     private String username;
     @Column(name = "password",nullable = false)
     private String password;
+    @OneToMany(mappedBy = "user")
+    private List<Task> task;
 }
