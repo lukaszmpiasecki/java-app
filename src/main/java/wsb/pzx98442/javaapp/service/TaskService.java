@@ -15,12 +15,18 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
+    public Iterable<Task> listAll(){
+        return taskRepository.findAll();
+    }
+
+    public Task find(Integer id){
+        return taskRepository.findById(id).orElse(null);
+    }
+
     public void save(Task task){
         taskRepository.save(task);
     }
-    public void delete(Task task){
-        taskRepository.delete(task);
+    public void delete(Integer id){
+        taskRepository.deleteById(id);
     }
-
-
 }
